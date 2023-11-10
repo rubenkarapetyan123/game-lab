@@ -1,0 +1,19 @@
+{
+  "name": "game-lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubenkarapetyan123/game-lab.git"
+  },
+  "author": "ruben.karapetyan@tumo.org",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rubenkarapetyan123/game-lab/issues"
+  },
+  "homepage": "https://github.com/rubenkarapetyan123/game-lab#readme"
+}
