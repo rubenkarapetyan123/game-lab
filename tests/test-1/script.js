@@ -1,10 +1,18 @@
 
-function keyPressed(){
-    console.log("key pressed");
+// function keyPressed(){
+//     console.log("key pressed");
+// }
+// function mouseClicked(){
+//     console.log("mouse pressed");
+// }
+// function doubleClicked(){
+//     console.log("db clicked");
+// }
+
+function draw(){
+    console.log("hello");
 }
-function mouseClicked(){
-    console.log("mouse pressed");
-}
-function doubleClicked(){
-    console.log("db clicked");
+
+function setup(){
+
 }
