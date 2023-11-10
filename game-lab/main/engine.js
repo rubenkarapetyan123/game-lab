@@ -16,8 +16,8 @@ function noLoop(){
 }
 
 function onLoad(){
+    setup()
     try{        
-        setup()
         loop()
     }catch(err){
 

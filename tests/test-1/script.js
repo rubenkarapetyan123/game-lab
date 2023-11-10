@@ -14,7 +14,10 @@
 // }
 
 function setup(){
-    createCanvas(100,100)
+    createCanvas(500,500)
+    background("red")
+    fill("blue")
+    rect(10,10,20,20)
 }
 
 // setTimeout(()=>noLoop(),2000)
