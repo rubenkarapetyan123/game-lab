@@ -1,0 +1,1 @@
+const DEFAULT_CANVAS_BACKGROUND = "gray"

@@ -1,4 +1,4 @@
-export const CLICK = "click"
-export const DBLCLICK = "dblclick"
-export const KEY_PRESS = "keypress"
-export const LOAD = "load"
+const CLICK = "click"
+const DBLCLICK = "dblclick"
+const KEY_PRESS = "keypress"
+const LOAD = "load"

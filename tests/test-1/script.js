@@ -9,10 +9,12 @@
 //     console.log("db clicked");
 // }
 
-function draw(){
-    console.log("hello");
-}
+// function draw(){
+//     console.log("hello");
+// }
 
 function setup(){
-
+    createCanvas(100,100)
 }
+
+// setTimeout(()=>noLoop(),2000)
