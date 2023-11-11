@@ -18,6 +18,8 @@ function setup(){
     background("red")
     fill("blue")
     rect(10,10,20,20)
+    textSize(25)
+    text("Ruben", 100, 50)
 }
 
 // setTimeout(()=>noLoop(),2000)

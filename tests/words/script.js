@@ -10,13 +10,13 @@ let startMusic = true;
 
 function setup() {
     createCanvas(window.innerWidth, window.innerHeight);
-    backgroundMusic = loadSound("./assets/sounds/background_music.mp3")
+    // backgroundMusic = loadSound("./assets/sounds/background_music.mp3")
     play();
 }
 
 function mousePressed() {
     if(startMusic) {
-        backgroundMusic.play();
+        // backgroundMusic.play();
         startMusic = false;
     }
 }
@@ -45,7 +45,7 @@ function checkLetter(letter) {
         selectWord(letter);
     } else {
         checkWordNextLetter(letter);
-    }
+    } // bug, current word may be undefined, add another condition for check it
 
     if (currentWord.text.length === currentIndex) {
         visibleWords.splice(visibleWords.indexOf(currentWord), 1);

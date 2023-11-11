@@ -8,11 +8,15 @@ function background(color){
 
     context.fillStyle = contextColor
 }
-
 function rect(x, y, width, height){    
     context.fillRect(x, y, width, height)
 }
-
 function fill(color){
     context.fillStyle = color
+}
+function text(text, x, y){
+    context.fillText(text, x, y);
+}
+function textSize(size){
+    context.font = `${size}px Arial`
 }
