@@ -1,10 +1,9 @@
 function engine(){
-    loop()
-    try{        
-        draw()
-    }catch(err){
-
+    if(!window.draw){
+        return
     }
+    draw()
+    loop()     
 }
 
 function loop(){
@@ -13,14 +12,17 @@ function loop(){
 
 function noLoop(){
     cancelAnimationFrame(globalEngineId)
+    globalEngineId = null
+}
+
+function isLooping(){
+    return !!globalEngineId
 }
 
 function onLoad(){
     setup()
-    try{        
+    if(window.draw){
         loop()
-    }catch(err){
-
     }
 }
 

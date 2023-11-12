@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/rubenkarapetyan123/game-lab/issues"
   },
-  "homepage": "https://github.com/rubenkarapetyan123/game-lab#readme"
+  "homepage": "https://github.com/rubenkarapetyan123/game-lab#readme",
+  "devDependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
 }

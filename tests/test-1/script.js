@@ -22,4 +22,7 @@ function setup(){
     text("Ruben", 100, 50)
 }
 
-// setTimeout(()=>noLoop(),2000)
+
+// setTimeout(()=>noLoop(),5000)
+// setTimeout(()=>console.log(isLooping()),2000)
+// setTimeout(()=>console.log(isLooping()),8000)
