@@ -10,6 +10,10 @@ import {
 } from "../functions/canvas.js"
 import "../eventListeners/global.js"
 import "../globalVariables/utils.js"
+import { 
+    loadSound 
+} from "../functions/audio.js"
+import { image, loadImage } from "../functions/image.js"
 
 window.textSize = textSize
 window.text = text
@@ -22,3 +26,6 @@ window.noLoop = noLoop
 window.isLooping = isLooping
 window.circle = circle
 window.triangle = triangle
+window.loadSound = loadSound
+window.loadImage = loadImage
+window.image = image

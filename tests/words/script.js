@@ -10,13 +10,13 @@ let startMusic = true;
 
 function setup() {
     createCanvas(window.innerWidth, window.innerHeight);
-    // backgroundMusic = loadSound("./assets/sounds/background_music.mp3")
+    backgroundMusic = loadSound("../../assets/radio.mp3")
     play();
 }
 
 function mousePressed() {
     if(startMusic) {
-        // backgroundMusic.play();
+        backgroundMusic.play();
         startMusic = false;
     }
 }

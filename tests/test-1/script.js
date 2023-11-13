@@ -9,9 +9,12 @@
 //     console.log("db clicked");
 // }
 
+
 // function draw(){
 //     console.log("hello");
 // }
+
+let img
 
 function setup(){
     createCanvas(500,500)
@@ -23,6 +26,8 @@ function setup(){
     circle(50, 50, 100)
     console.log(height, width, windowWidth, windowHeight);
     triangle(200,200,250,400,200,300)
+    img = loadImage("../../assets/example.jpg")
+    image(img, 20, 20)
 }
 
 
