@@ -1,1 +1,1 @@
-const DEFAULT_FRAMES = 60
+export const DEFAULT_FRAMES = 60

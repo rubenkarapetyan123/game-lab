@@ -1,4 +1,6 @@
-function createCanvas(width, height){
+import { DEFAULT_CANVAS_BACKGROUND } from "../constants/STYLES";
+
+export function createCanvas(width, height){
     if(!!canvas){
         throw new Error({ name: 'game-lab error', message: 'canvas already created' })
     }else{

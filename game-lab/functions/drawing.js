@@ -1,4 +1,4 @@
-function background(color){
+export function background(color){
     const { width, height } = canvas.getBoundingClientRect()
     const contextColor = context.fillStyle
 
@@ -8,15 +8,15 @@ function background(color){
 
     context.fillStyle = contextColor
 }
-function rect(x, y, width, height){    
+export function rect(x, y, width, height){    
     context.fillRect(x, y, width, height)
 }
-function fill(color){
+export function fill(color){
     context.fillStyle = color
 }
-function text(text, x, y){
+export function text(text, x, y){
     context.fillText(text, x, y);
 }
-function textSize(size){
+export function textSize(size){
     context.font = `${size}px Arial`
 }

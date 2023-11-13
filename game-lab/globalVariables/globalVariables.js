@@ -1,3 +1,3 @@
-let canvas = null;
-let context = null;
-let globalEngineId = null;
+window.canvas = null;
+window.context = null;
+window.globalEngineId = null;

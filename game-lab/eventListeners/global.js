@@ -1,3 +1,5 @@
+import { KEY_DOWN, MOUSE_PRESSED } from "../constants/EVENTS.js";
+
 window.addEventListener(KEY_DOWN,_keyTyped)
 // window.addEventListener(KEY_PRESS, keyPressed)
 // window.addEventListener(DBLCLICK, doubleClicked)

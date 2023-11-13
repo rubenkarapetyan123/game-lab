@@ -31,7 +31,7 @@ function draw() {
     }
 
     const [firstWord] = visibleWords;
-    if (visibleWords.length && firstWord.y > height) {
+    if (visibleWords.length && firstWord.y > window.innerHeight) {
         lose();
     }
 }
