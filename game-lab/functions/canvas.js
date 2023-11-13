@@ -12,5 +12,8 @@ export function createCanvas(width, height){
 
         const body = document.querySelector("body")
         body.appendChild(canvas)
+
+        window.width = width
+        window.height = height
     }
 }

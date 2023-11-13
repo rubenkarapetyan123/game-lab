@@ -20,6 +20,9 @@ function setup(){
     rect(10,10,20,20)
     textSize(25)
     text("Ruben", 100, 50)
+    circle(50, 50, 100)
+    console.log(height, width, windowWidth, windowHeight);
+    triangle(200,200,250,400,200,300)
 }
 
 

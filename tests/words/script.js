@@ -31,7 +31,7 @@ function draw() {
     }
 
     const [firstWord] = visibleWords;
-    if (visibleWords.length && firstWord.y > window.innerHeight) {
+    if (visibleWords.length && firstWord.y > height) {
         lose();
     }
 }
@@ -43,6 +43,7 @@ function keyTyped() {
 function checkLetter(letter) {
     if (!currentWord) {
         selectWord(letter);
+        return
     } else {
         checkWordNextLetter(letter);
     } // bug, current word may be undefined, add another condition for check it
