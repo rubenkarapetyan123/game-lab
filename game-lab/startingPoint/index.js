@@ -1,3 +1,5 @@
+import "../globalVariables/utils.js"
+import "../globalVariables/globalVariables"
 import "../main/engine.js"
 import {
     loop, noLoop, isLooping
@@ -9,7 +11,6 @@ import {
     createCanvas
 } from "../functions/canvas.js"
 import "../eventListeners/global.js"
-import "../globalVariables/utils.js"
 import { 
     loadSound 
 } from "../functions/audio.js"

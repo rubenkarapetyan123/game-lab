@@ -1,5 +1,4 @@
 import { DEFAULT_FRAMES } from "../constants/GLOBAL.js";
-import { globalEngineId } from "../globalVariables/globalVariables.js"
 import { LOAD } from "../constants/EVENTS.js";
 
 
@@ -8,16 +7,20 @@ function engine(){
         return
     }
     draw()
-    loop()     
+    if(!isLoopStoped){
+        loop() 
+    }
 }
 
 export function loop(){
     globalEngineId = requestAnimationFrame(engine, DEFAULT_FRAMES)
+    isLoopStoped = false
 }
 
-export function noLoop(){
+export function noLoop(){    
     cancelAnimationFrame(globalEngineId)
     globalEngineId = null
+    isLoopStoped = true
 }
 
 export function isLooping(){
