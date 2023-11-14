@@ -5,10 +5,10 @@ import {
     loop, noLoop, isLooping
 } from "../main/engine.js"
 import {
-    textSize, text, fill, rect, background, circle, triangle, ellipse
+    textSize, text, fill, rect, background, circle, triangle, ellipse, stroke, strokeWeight, noStroke, noFill
 } from "../functions/drawing.js"
 import {
-    createCanvas, rotate
+    createCanvas, rotate, translate
 } from "../functions/canvas.js"
 import "../eventListeners/global.js"
 import { 
@@ -40,3 +40,8 @@ window.dist = dist
 window.rotate = rotate
 window.push = push
 window.pop = pop
+window.translate = translate
+window.stroke = stroke
+window.strokeWeight = strokeWeight
+window.noStroke = noStroke
+window.noFill = noFill

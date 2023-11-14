@@ -27,8 +27,12 @@ function setup(){
     // console.log(height, width, windowWidth, windowHeight);
     // triangle(200,200,250,400,200,300)
     // img = loadImage("../../assets/example.jpg")
-    // image(img, 20, 20)    
-    // ellipse(300,300,75,50)
+    // image(img, 20, 20)   
+    stroke("yellow")
+    strokeWeight(4) 
+    // noStroke()
+    noFill()
+    ellipse(300,300,75,50)
     // angleMode(DEGREES)
     console.log(sin(Math.PI));
     console.log(cos(30));
@@ -38,10 +42,18 @@ function setup(){
     console.log(ANGLE_MODE)
     // angleMode("sadiasd")
     console.log(dist(0,0,5,5))
-    rotate(60)
-    rect(100, 50, 52, 52)
-    push()
-    pop()
+    // rotate(60)
+    // rect(100, 50, 52, 52)
+    // push()
+    // translate(100,100)
+    // rotate(30)
+    // rect(0, 0, 52, 52)
+    // pop()
+
+    // rect(0, 0, 52, 52)
+
+
+
 }
 
 
