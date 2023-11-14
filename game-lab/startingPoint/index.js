@@ -5,7 +5,7 @@ import {
     loop, noLoop, isLooping
 } from "../main/engine.js"
 import {
-    textSize, text, fill, rect, background, circle, triangle
+    textSize, text, fill, rect, background, circle, triangle, ellipse
 } from "../functions/drawing.js"
 import {
     createCanvas
@@ -15,6 +15,7 @@ import {
     loadSound 
 } from "../functions/audio.js"
 import { image, loadImage } from "../functions/image.js"
+import { sin, cos, map, angleMode, dist } from "../functions/utils.js";
 
 window.textSize = textSize
 window.text = text
@@ -30,3 +31,9 @@ window.triangle = triangle
 window.loadSound = loadSound
 window.loadImage = loadImage
 window.image = image
+window.ellipse = ellipse
+window.sin = sin
+window.cos = cos
+window.map = map
+window.angleMode = angleMode
+window.dist = dist

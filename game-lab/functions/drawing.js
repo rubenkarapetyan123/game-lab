@@ -34,3 +34,9 @@ export function triangle (x1, y1, x2, y2, x3, y3){
     context.stroke()
     context.closePath()
 }
+export function ellipse(x, y, width, height){
+    context.beginPath();
+    context.ellipse(x, y, width, height, Math.PI / 4, 0, 2 * Math.PI);
+    context.fill();
+    context.closePath()
+} 

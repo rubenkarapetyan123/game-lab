@@ -27,7 +27,16 @@ function setup(){
     console.log(height, width, windowWidth, windowHeight);
     triangle(200,200,250,400,200,300)
     img = loadImage("../../assets/example.jpg")
-    image(img, 20, 20)
+    image(img, 20, 20)    
+    ellipse(300,300,75,50)
+    console.log(sin(30));
+    console.log(cos(30));
+    console.log(map(34,0,100,5,10))    
+    console.log(ANGLE_MODE)
+    angleMode(DEGREES)
+    console.log(ANGLE_MODE)
+    // angleMode("sadiasd")
+    console.log(dist(0,0,5,5))
 }
 
 

@@ -1,0 +1,23 @@
+export function sin(value){
+    return Math.sin(value)
+}
+export function cos(value){
+    return Math.cos(value)
+}
+export function map(value, start1, end1, start2, end2){
+    let range1 = end1 - start1
+    let range2 = end2 - start2
+    let percent = (value - start1)/range1 * 100
+    let x = percent/100 * range2 + start2
+    return x
+}
+export function angleMode(mode){
+    if(mode === RADIANS || mode === DEGREES){
+        ANGLE_MODE = mode
+    }else {
+        throw new Error("function angleMode has not mode : "+mode)
+    }
+}
+export function dist(x1, y1, x2, y2){
+    return Math.sqrt((x2-x1)**2 + (y2-y1)**2)
+}
