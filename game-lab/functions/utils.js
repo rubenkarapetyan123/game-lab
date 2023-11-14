@@ -1,8 +1,10 @@
 export function sin(value){
-    return Math.sin(value)
+    const degrees = getAngle(value)
+    return Math.sin(degrees)
 }
 export function cos(value){
-    return Math.cos(value)
+    const degrees = getAngle(value)
+    return Math.cos(degrees)
 }
 export function map(value, start1, end1, start2, end2){
     let range1 = end1 - start1
@@ -20,4 +22,22 @@ export function angleMode(mode){
 }
 export function dist(x1, y1, x2, y2){
     return Math.sqrt((x2-x1)**2 + (y2-y1)**2)
+}
+export function getAngle(value){
+    if(ANGLE_MODE === DEGREES){
+        return value
+    }
+    return value * (180 / Math.PI) 
+}
+export function getRadians(value){
+    if(ANGLE_MODE === RADIANS){
+        return value
+    }
+    return value * (Math.PI / 180) 
+}
+export function push(){
+    context.save()
+}
+export function pop(){
+    context.restore()
 }

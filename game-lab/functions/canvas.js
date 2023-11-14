@@ -1,4 +1,5 @@
 import { DEFAULT_CANVAS_BACKGROUND } from "../constants/STYLES";
+import { getRadians } from "./utils";
 
 export function createCanvas(width, height){
     if(!!canvas){
@@ -16,4 +17,9 @@ export function createCanvas(width, height){
         window.width = width
         window.height = height
     }
+}
+
+export function rotate(angle){
+    const radians = getRadians(angle)
+    context.rotate(radians)
 }
