@@ -28,6 +28,9 @@ export function isLooping(){
 }
 
 function onLoad(){
+    if(!!window.preload){
+        preload()
+    }
     setup()
     if(window.draw){
         loop()
