@@ -6,7 +6,5 @@ export function loadImage(src){
 export function image(img, x, y, width, height){
     const imgWidth = width ? width : img.width
     const imgHeight = height ? height : img.height
-    img.onload = ()=>{
-        context.drawImage(img, x, y, imgWidth, imgHeight)
-    }
+    context.drawImage(img, x, y, imgWidth, imgHeight)
 }

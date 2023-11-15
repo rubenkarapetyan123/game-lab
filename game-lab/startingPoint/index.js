@@ -15,7 +15,7 @@ import {
     loadSound 
 } from "../functions/audio.js"
 import { image, loadImage } from "../functions/image.js"
-import { sin, cos, map, angleMode, dist, push, pop } from "../functions/utils.js";
+import { sin, cos, map, angleMode, dist, push, pop, scale } from "../functions/utils.js";
 
 window.textSize = textSize
 window.text = text
@@ -45,3 +45,4 @@ window.stroke = stroke
 window.strokeWeight = strokeWeight
 window.noStroke = noStroke
 window.noFill = noFill
+window.scale = scale

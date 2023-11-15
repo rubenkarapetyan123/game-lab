@@ -41,3 +41,6 @@ export function push(){
 export function pop(){
     context.restore()
 }
+export function scale(x, y){
+    context.scale(x, y)
+}

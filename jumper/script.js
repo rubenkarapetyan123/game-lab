@@ -7,6 +7,19 @@ function preload(){
 
 function setup(){
     createCanvas(canvasWidth, canvasHeight)
-    hero = new Hero(0, 0, 100, 100, hero_jump_image, 1)
+    hero = new Hero(0, height - 100, 100, 100, hero_jump_image, 1)
+}
+
+function draw(){
+    background("green")
+    hero.engine()
     hero.draw()
+}
+
+function keyTyped(){    
+    if(key === "d"){        
+        hero.goRight()
+    }else if(key === "a"){
+        hero.goLeft()
+    }
 }
