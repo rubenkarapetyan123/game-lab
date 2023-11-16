@@ -10,7 +10,7 @@ class Enemy {
     }
     static spawnEnemy (image){
         enemies.push(
-            new Enemy(random(0, CANVAS_WEIGTH), image)
+            new Enemy(random(0, CANVAS_WEIGTH - 30), image)
         )
     }
     draw(){
@@ -30,7 +30,7 @@ class Enemy {
     outScreen(){
         if(this.y >= CANVAS_HEIGHT){
             enemies = enemies.slice(1, enemies.length)
-            plane.hp--
+            plane.getDamage()
         }
     }
     isTouchedPlane(){
@@ -39,7 +39,7 @@ class Enemy {
             ((this.x + this.width >= plane.x && this.x + this.width < plane.x + plane.width) ||
             (this.x >= plane.x && this.x < plane.x + plane.width))
         ){
-            plane.hp--
+            plane.getDamage()
             this.disappearing()
         }
     }

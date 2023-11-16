@@ -3,6 +3,14 @@ let bullets = []
 let enemies = []
 let plane_image
 let meteor_images = []
+let bullet_spawn_interval
+let enemy_spawn_interval
+
+function resetData (){
+    bullets = []
+    enemies = []
+    plane = new Plane(plane_image)
+}
 
 function preload(){
     plane_image = loadImage("./assets/plane.png")
@@ -11,18 +19,18 @@ function preload(){
 
 function setup(){
     createCanvas(CANVAS_WEIGTH, CANVAS_HEIGHT)
-    plane = new Plane(plane_image)
+    resetData()
 }
 
-function draw(){        
-    background("blue") 
-    plane.draw()
+function draw(){ 
+    drawBackground()
     bullets.forEach(bullet=>{
         bullet.draw()
     })
     enemies.forEach(enemy=>{
         enemy.draw()
     })
+    plane.draw()
 }
 
 function keyTyped(){
@@ -31,14 +39,30 @@ function keyTyped(){
     }else if(key === "d"){
         plane.goRight()
     }
+
+    if(plane.hp <= 0 && key === " "){
+        resetData()
+        runIntervals()
+        loop()
+    }
 }
 
-setInterval(()=>{
-    plane.spawnBullet()
-},BULLET_SPAWN_DELAY)
-
-setInterval(()=>{
-    // console.log(meteor_images[random(0, meteor_images.length)]);
+function runIntervals(){
+    bullet_spawn_interval = setInterval(()=>{
+        plane.spawnBullet()
+    },BULLET_SPAWN_DELAY)
     
-    Enemy.spawnEnemy(meteor_images[random(0, meteor_images.length)])
-},ENEMY_SPAWN_DELAY)
+    enemy_spawn_interval = setInterval(()=>{        
+        Enemy.spawnEnemy(meteor_images[random(0, meteor_images.length)])
+    },ENEMY_SPAWN_DELAY)
+}
+runIntervals()
+
+
+function drawBackground(){
+    background("black") 
+    for(let i = 0; i < 50; i++){
+        fill("white")
+        circle(random(0, CANVAS_WEIGTH),random(0,CANVAS_HEIGHT),random(0.1, 5))
+    }
+}

@@ -1,4 +1,4 @@
-import "../globalVariables/utils.js"
+import "../globalVariables/utils"
 import "../globalVariables/globalVariables"
 import "../main/engine.js"
 import {
