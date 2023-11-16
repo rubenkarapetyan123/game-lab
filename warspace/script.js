@@ -2,7 +2,7 @@ let plane
 let bullets = []
 let enemies = []
 let plane_image
-let meteor_images = []
+let meteor_images = [[],[],[]]
 let bullet_spawn_interval
 let enemy_spawn_interval
 
@@ -14,7 +14,12 @@ function resetData (){
 
 function preload(){
     plane_image = loadImage("./assets/plane.png")
-    meteor_images[0] = loadImage("./assets/meteor1.png")
+    meteor_images[0][0] = loadImage("./assets/meteor1.png")
+    meteor_images[0][1] = loadImage("./assets/meteor12.png")
+    meteor_images[1][0] = loadImage("./assets/meteor2.png")
+    meteor_images[1][1] = loadImage("./assets/meteor22.png")
+    meteor_images[2][0] = loadImage("./assets/meteor3.png")
+    meteor_images[2][1] = loadImage("./assets/meteor32.png")
 }
 
 function setup(){
@@ -53,7 +58,9 @@ function runIntervals(){
     },BULLET_SPAWN_DELAY)
     
     enemy_spawn_interval = setInterval(()=>{        
-        Enemy.spawnEnemy(meteor_images[random(0, meteor_images.length)])
+        // Enemy.spawnEnemy(meteor_images[random(0, meteor_images.length)])
+        const arr = meteor_images[random(0,meteor_images.length)]
+        Enemy.spawnEnemy(arr[0], arr[1])
     },ENEMY_SPAWN_DELAY)
 }
 runIntervals()

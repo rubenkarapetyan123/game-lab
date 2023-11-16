@@ -1,19 +1,34 @@
 class Enemy {
-    constructor( x, image ){
+    constructor( x, image1, image2 ){
         this.x = x
         this.y = 0
         this.width = 30
         this.height = 30
         this.speed = 2
         this.id = `${Math.random()}`
-        this.image = image
+        this.image = image1
+        this.image1 = image1
+        this.image2 = image2
+        this.frame = 0
     }
-    static spawnEnemy (image){
+    static spawnEnemy (image1, image2){
         enemies.push(
-            new Enemy(random(0, CANVAS_WEIGTH - 30), image)
+            new Enemy(random(0, CANVAS_WEIGTH - 30), image1, image2)
         )
     }
+    animation(){
+        this.frame++
+        if(this.frame >= 10){
+            this.frame = 0
+            if(this.image.src === this.image1.src){
+                this.image = this.image2
+            }else{
+                this.image = this.image1
+            }
+        }
+    }
     draw(){
+        this.animation()
         this.moving()
         this.running()
         this.outScreen()
