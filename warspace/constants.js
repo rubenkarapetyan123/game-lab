@@ -1,0 +1,2 @@
+const CANVAS_WEIGTH = 400
+const CANVAS_HEIGHT = 700
