@@ -9,7 +9,7 @@ class Bullet {
     }
     draw(){
         this.moving()
-        this.isTouchedEnemy()
+        // this.isTouchedEnemy()
         this.outScreen()
         rect(this.x, this.y, this.width, this.height)
     }
@@ -28,10 +28,18 @@ class Bullet {
     }
     isTouchedEnemy(){
         enemies.forEach(enemy=>{
-            if(this.x + this.width < enemy.x + enemy.width && 
-                this.x > enemy.x && 
-                this.y > enemy.y &&
-                this.y + this.height > enemy.y
+            // if(this.x + this.width < enemy.x + enemy.width && 
+            //     this.x > enemy.x && 
+            //     this.y > enemy.y &&
+            //     this.y + this.height > enemy.y
+            // ){
+            //     this.disappearing()
+            //     enemy.disappearing()
+            // }
+            if(
+                this.y <= enemy.y + enemy.height &&
+                ((this.x > enemy.x && this.x < enemy.x + enemy.width) ||
+                (this.x + this.width > enemy.x && this.x + this.width < enemy.x + enemy.width))
             ){
                 this.disappearing()
                 enemy.disappearing()
