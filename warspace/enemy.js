@@ -46,6 +46,8 @@ class Enemy {
         if(this.y >= CANVAS_HEIGHT){
             enemies = enemies.slice(1, enemies.length)
             plane.getDamage()
+            fill("rgba(255,0,0,0.5)")
+            rect(0,0,CANVAS_WEIGTH,CANVAS_HEIGHT)
         }
     }
     isTouchedPlane(){
@@ -70,6 +72,7 @@ class Enemy {
             ((bullet.x > this.x && bullet.x < this.x + this.width) ||
             (bullet.x + bullet.width > this.x && bullet.x + bullet.width < this.x + this.width))
         ){
+            boom_sound.play()
             this.disappearing()
             bullet.disappearing()
         }

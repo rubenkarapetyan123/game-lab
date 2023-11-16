@@ -29,11 +29,13 @@ class Plane {
         },300)
     }
     getDamage(){
+        damage_sound.play()
         this.hp--
         if(this.hp <= 0){
             clearInterval(bullet_spawn_interval)
             clearInterval(enemy_spawn_interval)
             this.drawLosingInterface()
+            lose_sound.play()
             noLoop()
         }
     }
@@ -57,6 +59,7 @@ class Plane {
         bullets.push(
             new Bullet(this.x + this.width / 2, this.y)
         )
+        shoot_sound.play()
     }
     drawInterface(){
         fill("white")

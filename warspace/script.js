@@ -8,6 +8,10 @@ let meteor_images = [[],[],[]]
 let bullet_spawn_interval
 let enemy_spawn_interval
 
+let damage_sound, lose_sound, shoot_sound, boom_sound, soundtrack
+
+
+
 function resetData (){
     bullets = []
     enemies = []
@@ -24,6 +28,11 @@ function preload(){
     meteor_images[1][1] = loadImage("./assets/meteor22.png")
     meteor_images[2][0] = loadImage("./assets/meteor3.png")
     meteor_images[2][1] = loadImage("./assets/meteor32.png")
+    damage_sound = loadSound("./assets/uron.mp3")
+    lose_sound = loadSound("./assets/lose.mp3")
+    shoot_sound = loadSound("./assets/shoot.mp3")
+    boom_sound = loadSound("./assets/babax.mp3")
+    soundtrack = loadSound("./assets/soundtrack.mp3")
 }
 
 function setup(){
@@ -48,6 +57,8 @@ function keyTyped(){
     }else if(key === "d"){
         plane.goRight()
     }
+    soundtrack.play()
+
 
     if(plane.hp <= 0 && key === " "){
         resetData()
@@ -71,7 +82,7 @@ runIntervals()
 
 
 function drawBackground(){
-    background("black") 
+    background("rgba(0,0,0,0.7)") 
     for(let i = 0; i < 50; i++){
         fill("white")
         circle(random(0, CANVAS_WEIGTH),random(0,CANVAS_HEIGHT),random(0.1, 5))
