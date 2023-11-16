@@ -2,6 +2,8 @@ let plane
 let bullets = []
 let enemies = []
 let plane_image
+let plane_image_left
+let plane_image_right
 let meteor_images = [[],[],[]]
 let bullet_spawn_interval
 let enemy_spawn_interval
@@ -9,11 +11,13 @@ let enemy_spawn_interval
 function resetData (){
     bullets = []
     enemies = []
-    plane = new Plane(plane_image)
+    plane = new Plane(plane_image, plane_image_left, plane_image_right)
 }
 
 function preload(){
     plane_image = loadImage("./assets/plane.png")
+    plane_image_left = loadImage("./assets/plane1.png")
+    plane_image_right = loadImage("./assets/plane2.png")
     meteor_images[0][0] = loadImage("./assets/meteor1.png")
     meteor_images[0][1] = loadImage("./assets/meteor12.png")
     meteor_images[1][0] = loadImage("./assets/meteor2.png")

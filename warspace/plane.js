@@ -1,5 +1,5 @@
 class Plane {
-    constructor (image){
+    constructor (image, image_left, image_right){
         this.x = CANVAS_WEIGTH / 2
         this.height = 150
         this.width = 50
@@ -8,11 +8,25 @@ class Plane {
         this.image = image
         this.hp = 5
         this.score = 0
+        this.image_left = image_left
+        this.image_right = image_right
+        this.image_straight = image
+        this.straightTimeoutId
     }
     draw(){
-        image(this.image, this.x, this.y, this.width, this.height)
+        if(this.image.src === this.image_straight.src){
+            image(this.image, this.x, this.y, this.width, this.height)
+        }else{
+            image(this.image, this.x, this.y, this.width+50, this.height)
+        }
         this.drawInterface()
         this.score++
+    }
+    getStraight(){
+        clearTimeout(this.straightTimeoutId)
+        this.straightTimeoutId = setTimeout(()=>{
+            this.image = this.image_straight
+        },300)
     }
     getDamage(){
         this.hp--
@@ -24,12 +38,16 @@ class Plane {
         }
     }
     goRight (){
+        this.image = this.image_right
+        this.getStraight()
         if(this.x + this.width >= CANVAS_WEIGTH){
             return
         }
         this.x += this.speed
     }
     goLeft (){
+        this.image = this.image_left
+        this.getStraight()
         if(this.x < 0){
             return
         }
