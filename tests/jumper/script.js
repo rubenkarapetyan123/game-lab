@@ -1,9 +1,10 @@
 let hero_right_jump_image
 let hero_left_jump_image
 let hero
-let platforms = [ new Platform(50, 650, 100) ]
+let platforms = []
 
 function preload(){
+    generatePlatforms(platforms)
     hero_right_jump_image = loadImage("./assets/hero/hero_right.png")
     hero_left_jump_image = loadImage("./assets/hero/hero_left.png")
 }
@@ -26,7 +27,7 @@ function draw(){
     background("green")
     hero.engine()
     hero.draw()
-    platforms[0].draw()
+    platforms.forEach(platform=>platform.draw())
 }
 
 function keyTyped(){    

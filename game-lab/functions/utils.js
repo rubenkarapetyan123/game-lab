@@ -44,3 +44,6 @@ export function pop(){
 export function scale(x, y){
     context.scale(x, y)
 }
+export function random(min, max){
+    return Math.random() * (max - min) + min
+}

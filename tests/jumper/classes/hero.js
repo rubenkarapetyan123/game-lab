@@ -13,12 +13,13 @@ class Hero {
         this.state;
         this.left_jump_image = left_jump_image
         this.right_jump_image = right_jump_image
+        this.translateY = 0
     }
     engine(){
         this.falling()
     }
     draw (){
-        image(this.img, this.x, this.y, this.width, this.height)
+        image(this.img, this.x, this.y - this.translateY, this.width, this.height)
     }
     goRight(){
         // if(this.scaleX === -1){
@@ -47,17 +48,28 @@ class Hero {
     falling(){
         this.state = FALLING
         this.y += this.g
+        // translate(0, this.g)
         platforms.forEach(platform=>{
-            if(this.y + this.height >= platform.y 
+            // console.log("platform ",platform.y);
+            // console.log("hero ",this.y);
+            console.log(this.y + this.height);
+            
+            if(this.y + this.height  >= platform.y 
                 && this.y + this.height < platform.y + platform.height
                 && this.x + this.width >= platform.x
                 && this.x < platform.x + platform.width
                 && this.state === FALLING
                 ){
+                    // console.log(this.translateY);  
+
                 this.jump()
+                translate(0, this.jumpHeight)
+                this.translateY += this.jumpHeight
+                return
             }
         })
-        if(this.y + this.height >= height){
+        
+        if(this.y + this.height >= height && this.translateY <= 0){
             // translate(0, 5)
             this.jump()
         }
