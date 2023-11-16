@@ -45,5 +45,5 @@ export function scale(x, y){
     context.scale(x, y)
 }
 export function random(min, max){
-    return Math.random() * (max - min) + min
+    return Math.floor(Math.random() * (max - min) + min)
 }

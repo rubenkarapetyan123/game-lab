@@ -4,10 +4,11 @@ class Plane {
         this.height = 150
         this.width = 50
         this.y = CANVAS_HEIGHT - this.height - 20
-        this.speed = 8
+        this.speed = 15
+        this.image = image
     }
     draw(){
-        rect(this.x, this.y, this.width, this.height)
+        image(this.image, this.x, this.y, this.width, this.height)
     }
     goRight (){
         if(this.x + this.width >= CANVAS_WEIGTH){
