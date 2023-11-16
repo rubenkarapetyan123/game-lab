@@ -7,6 +7,7 @@ let plane_image_right
 let meteor_images = [[],[],[]]
 let bullet_spawn_interval
 let enemy_spawn_interval
+let explosion_image 
 
 let damage_sound, lose_sound, shoot_sound, boom_sound, soundtrack
 
@@ -20,6 +21,7 @@ function resetData (){
 
 function preload(){
     plane_image = loadImage("./assets/plane.png")
+    explosion_image = loadImage("./assets/blowup.png")
     plane_image_left = loadImage("./assets/plane1.png")
     plane_image_right = loadImage("./assets/plane2.png")
     meteor_images[0][0] = loadImage("./assets/meteor1.png")
@@ -72,11 +74,24 @@ function runIntervals(){
         plane.spawnBullet()
     },BULLET_SPAWN_DELAY)
     
-    enemy_spawn_interval = setInterval(()=>{        
+    // enemy_spawn_interval = setInterval(()=>{        
         // Enemy.spawnEnemy(meteor_images[random(0, meteor_images.length)])
-        const arr = meteor_images[random(0,meteor_images.length)]
-        Enemy.spawnEnemy(arr[0], arr[1])
-    },ENEMY_SPAWN_DELAY)
+        // const arr = meteor_images[random(0,meteor_images.length)]
+        // Enemy.spawnEnemy(arr[0], arr[1])
+    // },ENEMY_SPAWN_DELAY)
+
+    let speed = ENEMY_SPAWN_DELAY
+    function enemy_spawner(){
+        enemy_spawn_interval = setTimeout(()=>{
+            if(speed >= ENEMY_SPAWN_DELAY_MIN){
+                speed -= ENEMY_SPAWN_SPEED
+            }
+            const arr = meteor_images[random(0,meteor_images.length)]
+            Enemy.spawnEnemy(arr[0], arr[1])
+            enemy_spawner()
+        }, speed)
+    }
+    enemy_spawner()
 }
 runIntervals()
 

@@ -14,11 +14,7 @@ class Plane {
         this.straightTimeoutId
     }
     draw(){
-        if(this.image.src === this.image_straight.src){
-            image(this.image, this.x, this.y, this.width, this.height)
-        }else{
-            image(this.image, this.x, this.y, this.width+50, this.height)
-        }
+        image(this.image, this.x, this.y, this.width, this.height)
         this.drawInterface()
         this.score++
     }

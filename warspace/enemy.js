@@ -38,6 +38,7 @@ class Enemy {
         this.y += this.speed
     }
     disappearing(){
+        image(explosion_image, this.x - this.width , this.y, 100, 100)
         enemies = enemies.filter(enemy=>{
             return this.id !== enemy.id
         })
