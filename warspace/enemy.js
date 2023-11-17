@@ -4,7 +4,7 @@ class Enemy {
         this.y = 0
         this.width = 30
         this.height = 30
-        this.speed = random(1,5)
+        this.speed = random(1,2)
         this.id = `${Math.random()}`
         this.image = image1
         this.image1 = image1
@@ -46,7 +46,7 @@ class Enemy {
     outScreen(){
         if(this.y >= CANVAS_HEIGHT){
             enemies = enemies.slice(1, enemies.length)
-            plane.getDamage()
+            // plane.getDamage()
         }
     }
     isTouchedPlane(){

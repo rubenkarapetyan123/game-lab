@@ -56,7 +56,7 @@ class Plane {
         if(this.x + this.width >= CANVAS_WEIGTH){
             return
         }
-        this.smallSpeed = 2
+        this.smallSpeed = 1
         // this.x += this.speed
     }
     goLeft (){
@@ -65,7 +65,7 @@ class Plane {
         if(this.x < 0){
             return
         }
-        this.smallSpeed = -2
+        this.smallSpeed = -1
         // this.x -= this.speed
     }
     spawnBullet(){

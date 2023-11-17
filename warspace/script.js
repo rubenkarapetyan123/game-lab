@@ -119,7 +119,6 @@ function runIntervals(){
     }
     enemy_spawner()
 }
-runIntervals()
 
 
 function drawBackground(){
