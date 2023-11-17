@@ -6,11 +6,13 @@ class Bullet {
         this.height = 7
         this.speed = 5
         this.id = `${Math.random()}`
+        this.color = BULLET_COLOR
     }
     draw(){
         this.moving()
         // this.isTouchedEnemy()
         this.outScreen()
+        fill(this.color)
         rect(this.x, this.y, this.width, this.height)
     }
     moving(){

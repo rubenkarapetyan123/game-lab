@@ -7,3 +7,4 @@ const ENEMY_SPAWN_DELAY_MIN = 500
 const START = "start"
 const PROCCESSING = "proccessing"
 const END = "end"
+const BULLET_COLOR = "red"

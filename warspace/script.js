@@ -9,12 +9,14 @@ let bullet_spawn_interval
 let enemy_spawn_interval
 let explosion_image 
 let game_state = START
+let stars = []
 
 let damage_sound, lose_sound, shoot_sound, boom_sound, soundtrack
 
 
 
 function resetData (){
+    stars = addStars(50)
     bullets = []
     enemies = []
     plane = new Plane(plane_image, plane_image_left, plane_image_right)
@@ -105,9 +107,36 @@ runIntervals()
 
 
 function drawBackground(){
-    background("rgba(0,0,0,0.7)") 
-    for(let i = 0; i < 50; i++){
-        fill("white")
-        circle(random(0, CANVAS_WEIGTH),random(0,CANVAS_HEIGHT),random(0.1, 5))
+    background("rgba(0,0,0,0.3)") 
+    stars.forEach(star=>star.draw())
+}
+
+function addStars(count){
+    let arr = []
+    function Star(x, y){
+        this.x = x
+        this.y = y
+        this.r = random(1, 5)
+        this.speed = random(5, 10)
+        this.draw = ()=>{
+            this.moving()
+            this.outScreen()
+            fill("white")
+            circle(this.x,this.y,this.r)
+        }
+        this.moving = () => {
+            this.y += this.speed
+        }
+        this.outScreen = ()=>{
+            if(this.y >= CANVAS_HEIGHT){
+                this.y = 0
+            }
+        }
     }
+    for(let i = 0; i < count; i++){
+        arr.push(
+            new Star(random(0, CANVAS_WEIGTH), random(0, CANVAS_HEIGHT))
+        )
+    }
+    return arr
 }

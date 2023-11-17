@@ -12,17 +12,28 @@ class Plane {
         this.image_right = image_right
         this.image_straight = image
         this.straightTimeoutId
+        this.smallSpeed = 0
     }
     draw(){
+        this.animation()
         image(this.image, this.x, this.y, this.width, this.height)
         this.drawInterface()
         this.score++
     }
+    animation(){
+        this.x += this.smallSpeed
+    }
     getStraight(){
         clearTimeout(this.straightTimeoutId)
+        if(this.x + this.width >= CANVAS_WEIGTH || this.x < 0){
+            this.smallSpeed = 0
+            this.image = this.image_straight
+            return
+        }
         this.straightTimeoutId = setTimeout(()=>{
             this.image = this.image_straight
-        },300)
+            this.smallSpeed = 0
+        },500)
     }
     getDamage(){
         damage_sound.play()
@@ -45,7 +56,8 @@ class Plane {
         if(this.x + this.width >= CANVAS_WEIGTH){
             return
         }
-        this.x += this.speed
+        this.smallSpeed = 2
+        // this.x += this.speed
     }
     goLeft (){
         this.image = this.image_left
@@ -53,7 +65,8 @@ class Plane {
         if(this.x < 0){
             return
         }
-        this.x -= this.speed
+        this.smallSpeed = -2
+        // this.x -= this.speed
     }
     spawnBullet(){
         bullets.push(
