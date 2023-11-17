@@ -76,6 +76,7 @@ class Plane {
         shoot_sound.play()
     }
     drawInterface(){
+        textAlign(TEXT_START)
         fill("white")
         textSize(30)
         text(`Score : ${this.score}`, 20, 50)

@@ -43,13 +43,14 @@ function preload(){
 function setup(){
     createCanvas(CANVAS_WEIGTH, CANVAS_HEIGHT)
     resetData()
+    textAlign(TEXT_START)
 }
 
 function draw(){ 
-    // if(game_state === START){
-    //     drawMenu("START", 0, 255, 0)
-    //     return
-    // }
+    if(game_state === START){
+        drawMenu("START", 0, 255, 0)
+        return
+    }
     drawBackground()
     bullets.forEach(bullet=>{
         bullet.draw()
@@ -61,18 +62,30 @@ function draw(){
 }
 
 function keyTyped(){
+    if(key === " " && game_state === START){
+        game_state = PROCCESSING 
+        soundtrack.volume = 0.2
+        soundtrack.loop = true
+        soundtrack.defaultMuted = false
+        soundtrack.play()
+        resetData()
+        runIntervals()
+        loop()
+        return
+    }
+
     if(key === "a"){
         plane.goLeft()
     }else if(key === "d"){
         plane.goRight()
     }
 
-    soundtrack.volume = 0.2
-    soundtrack.loop = true
-    soundtrack.defaultMuted = false
-    soundtrack.play()
-
     if(plane.hp <= 0 && key === " "){
+        game_state = PROCCESSING 
+        soundtrack.volume = 0.2
+        soundtrack.loop = true
+        soundtrack.defaultMuted = false
+        soundtrack.play()
         resetData()
         runIntervals()
         loop()
@@ -80,6 +93,9 @@ function keyTyped(){
 }
 
 function runIntervals(){
+    if(game_state === START){
+        return
+    }
     bullet_spawn_interval = setInterval(()=>{
         plane.spawnBullet()
     },BULLET_SPAWN_DELAY)

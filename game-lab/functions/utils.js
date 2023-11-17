@@ -47,3 +47,9 @@ export function scale(x, y){
 export function random(min, max){
     return Math.floor(Math.random() * (max - min) + min)
 }
+export function textAlign(value){
+    if(value !== window.CENTER && value !== TEXT_START){
+        throw new Error("wrong value for text mode")
+    }
+    context.textAlign = value
+}
