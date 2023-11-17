@@ -27,10 +27,14 @@ class Plane {
     getDamage(){
         damage_sound.play()
         this.hp--
+        fill("rgba(255,0,0,0.5)")
+        rect(0,0,CANVAS_WEIGTH,CANVAS_HEIGHT)
         if(this.hp <= 0){
             clearInterval(bullet_spawn_interval)
             clearInterval(enemy_spawn_interval)
             this.drawLosingInterface()
+            soundtrack.pause()
+            soundtrack.currentTime = 0
             lose_sound.play()
             noLoop()
         }
@@ -55,6 +59,7 @@ class Plane {
         bullets.push(
             new Bullet(this.x + this.width / 2, this.y)
         )
+        shoot_sound.currentTime = 0
         shoot_sound.play()
     }
     drawInterface(){
@@ -65,13 +70,6 @@ class Plane {
         text(`${this.hp} ❤️`, 20, 80)
     }
     drawLosingInterface(){
-        fill("rgba(0,0,0,0.5)")
-        rect(0,0,CANVAS_WEIGTH,CANVAS_HEIGHT)
-        textSize(45)
-        fill("white")
-        text("YOU LOSE", CANVAS_WEIGTH / 2 - 120, CANVAS_HEIGHT / 2)
-        textSize(15)
-        fill("rgba(255,255,255,0.5)")
-        text("press space to restart",  CANVAS_WEIGTH / 2 - 80, CANVAS_HEIGHT / 2 + 80)
+        drawMenu("YOU LOSE", 255, 0, 0)
     }
 }

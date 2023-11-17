@@ -8,6 +8,7 @@ let meteor_images = [[],[],[]]
 let bullet_spawn_interval
 let enemy_spawn_interval
 let explosion_image 
+let game_state = START
 
 let damage_sound, lose_sound, shoot_sound, boom_sound, soundtrack
 
@@ -43,6 +44,10 @@ function setup(){
 }
 
 function draw(){ 
+    // if(game_state === START){
+    //     drawMenu("START", 0, 255, 0)
+    //     return
+    // }
     drawBackground()
     bullets.forEach(bullet=>{
         bullet.draw()
@@ -59,8 +64,11 @@ function keyTyped(){
     }else if(key === "d"){
         plane.goRight()
     }
-    soundtrack.play()
 
+    soundtrack.volume = 0.2
+    soundtrack.loop = true
+    soundtrack.defaultMuted = false
+    soundtrack.play()
 
     if(plane.hp <= 0 && key === " "){
         resetData()

@@ -4,7 +4,7 @@ class Enemy {
         this.y = 0
         this.width = 30
         this.height = 30
-        this.speed = 2
+        this.speed = random(1,5)
         this.id = `${Math.random()}`
         this.image = image1
         this.image1 = image1
@@ -47,8 +47,6 @@ class Enemy {
         if(this.y >= CANVAS_HEIGHT){
             enemies = enemies.slice(1, enemies.length)
             plane.getDamage()
-            fill("rgba(255,0,0,0.5)")
-            rect(0,0,CANVAS_WEIGTH,CANVAS_HEIGHT)
         }
     }
     isTouchedPlane(){
@@ -73,6 +71,7 @@ class Enemy {
             ((bullet.x > this.x && bullet.x < this.x + this.width) ||
             (bullet.x + bullet.width > this.x && bullet.x + bullet.width < this.x + this.width))
         ){
+            boom_sound.currentTime = 0
             boom_sound.play()
             this.disappearing()
             bullet.disappearing()
